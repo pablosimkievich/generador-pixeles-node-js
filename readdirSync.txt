@@ -1,0 +1,4 @@
+// FS - Read Sync
+ 
+let files = fs.readdirSync("./public/docs");
+console.log(files);

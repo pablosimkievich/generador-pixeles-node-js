@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Download File Delete File</title>
+  </head>
+  <body>
+    <h1>Pixels</h1>
+    <div class="container">
+      <div class="card">
+        <img class="image" src="/docs/<%= files[0] %>" width="200px" height="200px" />
+        <p> </p>
+        <form action="/save-PNG-file" method="POST">
+          <button  id="generateButton">Generar Pixels</button>
+        </form>
+        <p>El archivo creado aparecerá a la derecha,<br>primero en la lista.</p>
+      </div>
+      <% files.map( (e, i) => { %>
+      <div class="card">
+        <img src="/docs/<%= e %>" alt="" />
+        <p>File <%= (i + 1) %>: <%= e %></p>
+        <form action="/download-file/<%= i %>" method="GET">
+          <button type="submit">DOWNLOAD PNG FILE</button>
+        </form>
+        <form action="/convert-to-PDF/<%= i %>">
+          <button type="submit">DOWNLOAD AS A PDF FILE</button>
+        </form>
+        <form action="/delete-file/<%= i %>" method="POST">
+          <button class="delete" type="submit">DELETE FILE FOREVER</button>
+        </form>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>
