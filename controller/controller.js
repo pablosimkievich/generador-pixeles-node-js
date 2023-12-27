@@ -117,7 +117,6 @@ const convertToPDF = async (req, res) => {
 // ! Download PDF File
 const  downloadPDF = async (req, res) => {
   // res.send(`Soy PDF Download ${req.params.nameOfFile.split(".")[0]}`)
-  
   let filesToReverse = fs.readdir("./public/download", async (error, filesToReverse) => {
     if (error) {
       throw error;
