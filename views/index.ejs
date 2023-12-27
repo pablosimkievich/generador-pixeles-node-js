@@ -28,16 +28,22 @@
         <img src="/docs/<%= e %>" alt="" />
         <p>File <%= (i + 1) %>: <%= e %></p>
         <form action="/download-file/<%= i %>" method="GET">
-          <button type="submit">DOWNLOAD PNG FILE</button>
+          <button id="df-<%= i %>" class="download-png-button" type="submit">DOWNLOAD PNG FILE</button>
         </form>
         <form action="/convert-to-PDF/<%= i %>">
-          <button type="submit">DOWNLOAD AS A PDF FILE</button>
+          <button id="cf-<%= i %>" class="convert-to-PDF-button" type="submit">CONVERT TO PDF FILE</button>
+        </form>
+        <form action="/download-PDF/<%= e %>"  method="POST">
+          <input value="<%= e %>" type="text" style="display:none">
+          <button id="dp-<%= i %>" class="download PDF file" type="submit">DOWNLOAD PDF FILE</button>
         </form>
         <form action="/delete-file/<%= i %>" method="POST">
-          <button class="delete" type="submit">DELETE FILE FOREVER</button>
+          <button id="de-<%= i %>" class="delete" type="submit">DELETE FILE FOREVER</button>
         </form>
+        <p class="validations">Soy validaciones</p>
       </div>
       <% }) %>
     </div>
+    <script src="/js/validations.js"></script>
   </body>
 </html>

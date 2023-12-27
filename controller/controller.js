@@ -100,7 +100,7 @@ const convertToPDF = async (req, res) => {
       if (i === Number(req.params.indexOfFile)) {
         let doc = new PDFDocument();
         let PDFfileName = e.split(".")[0];
-        doc.pipe(fs.createWriteStream(`./download/${PDFfileName}.pdf`));
+        doc.pipe(fs.createWriteStream(`./public/download/${PDFfileName}.pdf`));
         doc.image(`./public/docs/${e}`, {
           fit: [500, 400],
           align: "center",
@@ -111,6 +111,25 @@ const convertToPDF = async (req, res) => {
       }
     });
   });
+};
+
+
+// ! Download PDF File
+const  downloadPDF = async (req, res) => {
+  // res.send(`Soy PDF Download ${req.params.nameOfFile.split(".")[0]}`)
+  
+  let filesToReverse = fs.readdir("./public/download", async (error, filesToReverse) => {
+    if (error) {
+      throw error;
+    }
+    let files = filesToReverse.reverse();
+    files.forEach((e, i) => {
+      e === req.params.nameOfFile.split(".")[0] + ".pdf"
+        ? res.download(`./public/download/${e}`)
+        : "";
+    });
+  });
+  
 };
 
 
@@ -140,5 +159,6 @@ module.exports = {
   savePNGfile,
   downloadFile,
   convertToPDF,
+  downloadPDF,
   deleteFile,
 };
