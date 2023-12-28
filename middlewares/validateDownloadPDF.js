@@ -7,7 +7,8 @@ async function validateDownloadPDF(req, res, next) {
           }
           let files = filesToReverse.reverse();
           let nameOfFile = req.params.nameOfFile;
-          if (!files.includes(nameOfFile)) {
+          console.log(nameOfFile)
+          if (!files.includes((nameOfFile.split(".")[0] + ".pdf"))) {
             return res.redirect("/");
           } 
     });

@@ -8,7 +8,7 @@ router.get("/", controller.getAllFiles);
 router.post("/save-PNG-file", controller.savePNGfile)
 router.get("/download-file/:indexOfFile", controller.downloadFile);
 router.get("/convert-to-PDF/:indexOfFile", controller.convertToPDF);
-router.post("/download-PDF/:nameOfFile", /* validateDownloadPDF ,*/ controller.downloadPDF);
+router.post("/download-PDF/:nameOfFile",  validateDownloadPDF , controller.downloadPDF);
 router.post("/delete-file/:indexOfFile", controller.deleteFile);
 
 
