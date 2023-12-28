@@ -21,26 +21,26 @@
         <form action="/save-PNG-file" method="POST">
           <button  id="generateButton">Generar Pixels</button>
         </form>
-        <p>El archivo creado aparecerá a la derecha,<br>primero en la lista.</p>
+        <p>El archivo creado aparecerá a <br> la derecha,primero en la lista.</p>
       </div>
       <% files.map( (e, i) => { %>
       <div class="card">
         <img src="/docs/<%= e %>" alt="" />
         <p>File <%= (i + 1) %>: <%= e %></p>
         <form action="/download-file/<%= i %>" method="GET">
-          <button id="df-<%= i %>" class="download-png-button" type="submit">DOWNLOAD PNG FILE</button>
+          <button id="<%= i %>" class="download-png-button" type="submit">DOWNLOAD PNG FILE</button>
         </form>
         <form action="/convert-to-PDF/<%= i %>">
-          <button id="cf-<%= i %>" class="convert-to-PDF-button" type="submit">CONVERT TO PDF FILE</button>
+          <button id="<%= i %>" class="convert-to-PDF-button" type="submit">CONVERT TO PDF FILE</button>
         </form>
         <form action="/download-PDF/<%= e %>"  method="POST">
           <input value="<%= e %>" type="text" style="display:none">
-          <button id="dp-<%= i %>" class="download PDF file" type="submit">DOWNLOAD PDF FILE</button>
+          <button id="<%= i %>" class="download-PDF-file" type="submit">DOWNLOAD PDF FILE</button>
         </form>
         <form action="/delete-file/<%= i %>" method="POST">
-          <button id="de-<%= i %>" class="delete" type="submit">DELETE FILE FOREVER</button>
+          <button id="<%= i %>" class="delete" type="submit">DELETE FILE FOREVER</button>
         </form>
-        <p class="validations">Soy validaciones</p>
+        <p id="<%= i %>" class="validations"></p>
       </div>
       <% }) %>
     </div>

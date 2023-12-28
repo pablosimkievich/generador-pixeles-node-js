@@ -1,3 +1,65 @@
 console.log("Hola Validations");
 
-const downloadPNGbutton = document.querySelectorAll(".download-PNG-buttom")
+const downloadPNGbuttons = document.querySelectorAll(".download-png-button");
+const convertToPDFbuttons = document.querySelectorAll(".convert-to-PDF-button");
+const downloadPDFbuttons = document.querySelectorAll(".download-PDF-file");
+const deleteFileButtons = document.querySelectorAll(".delete");
+const validationTexts = document.querySelectorAll(".validations");
+
+for ( let button of downloadPNGbuttons) {
+    button.addEventListener("click", (e) => {
+        console.log(e.target)
+        console.log(button.id)
+        for (let validation of validationTexts) {
+            if (validation.id === button.id) {
+                validation.style.color = "limegreen";
+                validation.innerText = "Archivo PNG descargado con éxito"
+                // validation.innerText = " "
+            }
+        }
+    })
+}
+
+for ( let theButton of convertToPDFbuttons) {
+    theButton.addEventListener("click", (e) => {
+        console.log(e.target)
+        console.log(theButton.id)
+        for (let validation of validationTexts) {
+            if (validation.id === theButton.id) {
+                validation.style.color = "orange";
+                validation.innerText = "Convirtiendo a PDF"
+                //alidation.innerText = " "
+            }
+        }
+    })
+}
+
+for ( let elBoton of downloadPDFbuttons) {
+    elBoton.addEventListener("click", (e) => {
+        // e.preventDefault()
+        console.log(e.target)
+        console.log(elBoton.id)
+        for (let validation of validationTexts) {
+            if (validation.id === elBoton.id) {
+                validation.style.color = "mediumblue";
+                validation.innerText = "Archivo PDF descargado con éxito"
+                //alidation.innerText = " "
+            }
+        }
+    })
+}
+
+for ( let boton of deleteFileButtons) {
+    boton.addEventListener("click", (e) => {
+        console.log(e.target)
+        console.log(boton.id)
+        for (let validation of validationTexts) {
+            if (validation.id === boton.id) {
+                validation.style.color = "tomato";
+                validation.innerText = "Borrando archivo PNG"
+                //alidation.innerText = " "
+            }
+        }
+    })
+}
+
