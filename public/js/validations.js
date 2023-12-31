@@ -6,6 +6,22 @@ const downloadPDFbuttons = document.querySelectorAll(".download-PDF-file");
 const deleteFileButtons = document.querySelectorAll(".delete");
 const validationTexts = document.querySelectorAll(".validations");
 
+const generateButton = document.querySelector("#generateButton");
+const generateText = document.querySelector("#generateText");
+
+
+generateButton.addEventListener("click", (e) => {
+        console.log(generateText)
+        generateText.style.color = "green";
+        generateText.innerText = "Generando Imagen";
+        setTimeout(function() {
+            validation.innerText = " ";
+        }, 4000) 
+    
+})
+
+
+
 for ( let button of downloadPNGbuttons) {
     button.addEventListener("click", (e) => {
         console.log(e.target)
@@ -14,7 +30,9 @@ for ( let button of downloadPNGbuttons) {
             if (validation.id === button.id) {
                 validation.style.color = "limegreen";
                 validation.innerText = "Archivo PNG descargado con éxito"
-                // validation.innerText = " "
+                setTimeout(function() {
+                    validation.innerText = " ";
+                }, 4000)
             }
         }
     })
@@ -28,7 +46,9 @@ for ( let theButton of convertToPDFbuttons) {
             if (validation.id === theButton.id) {
                 validation.style.color = "orange";
                 validation.innerText = "Convirtiendo a PDF"
-                //alidation.innerText = " "
+                setTimeout(function() {
+                    validation.innerText = " ";
+                }, 4000)
             }
         }
     })
@@ -43,7 +63,9 @@ for ( let elBoton of downloadPDFbuttons) {
             if (validation.id === elBoton.id) {
                 validation.style.color = "mediumblue";
                 validation.innerText = "Archivo PDF descargado con éxito"
-                //alidation.innerText = " "
+                setTimeout(function() {
+                    validation.innerText = " ";
+                }, 4000)
             }
         }
     })
@@ -57,7 +79,9 @@ for ( let boton of deleteFileButtons) {
             if (validation.id === boton.id) {
                 validation.style.color = "tomato";
                 validation.innerText = "Borrando archivo PNG"
-                //alidation.innerText = " "
+                setTimeout(function() {
+                    validation.innerText = " ";
+                }, 4000)
             }
         }
     })

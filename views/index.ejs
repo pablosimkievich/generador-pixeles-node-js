@@ -21,7 +21,8 @@
         <form action="/save-PNG-file" method="POST">
           <button  id="generateButton">Generar Pixels</button>
         </form>
-        <p>El archivo creado aparecerá a <br> la derecha,primero en la lista.</p>
+        <p>El archivo creado aparecerá a <br> la derecha, primero en la lista.</p>
+        <p id="generateText" class="generado"> </p>
       </div>
       <% files.map( (e, i) => { %>
       <div class="card">
@@ -40,7 +41,7 @@
         <form action="/delete-file/<%= i %>" method="POST">
           <button id="<%= i %>" class="delete" type="submit">DELETE FILE FOREVER</button>
         </form>
-        <p id="<%= i %>" class="validations"></p>
+        <p id="<%= i %>" class="validations">   </p>
       </div>
       <% }) %>
     </div>
