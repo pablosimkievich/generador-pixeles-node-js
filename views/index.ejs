@@ -4,22 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
     />
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
     <link rel="stylesheet" href="/css/styles.css" />
-    <title>Download File Delete File</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <title>Pixeles</title>
   </head>
   <body>
-    <h1>Pixels</h1>
+    <h1>Pixeles</h1>
     <div class="container">
       <div class="card">
         <img class="image" src="/docs/<%= files[0] %>" width="200px" height="200px" />
         <p> </p>
         <form action="/save-PNG-file" method="POST">
-          <button  id="generateButton">Generar Pixels</button>
+          <button  id="generateButton">Generar Pixeles</button>
         </form>
         <p>El archivo creado aparecerá a <br> la derecha, primero en la lista.</p>
         <p id="generateText" class="generado"> </p>

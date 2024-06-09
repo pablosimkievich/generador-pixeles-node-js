@@ -1,4 +1,3 @@
-console.log("Hola Validations");
 
 const downloadPNGbuttons = document.querySelectorAll(".download-png-button");
 const convertToPDFbuttons = document.querySelectorAll(".convert-to-PDF-button");

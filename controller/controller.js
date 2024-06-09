@@ -4,7 +4,7 @@ let PDFDocument = require("pdfkit");
 const { createCanvas, loadImage } = require("canvas");
 
 
-// Todos - Get all Files
+// Todos - Lista de archivos
 const getAllFiles = async (req, res) => {
   let filesToReverse = fs.readdir("./public/docs", async (error, filesToReverse) => {
     if (error) {
@@ -16,7 +16,7 @@ const getAllFiles = async (req, res) => {
 };
 
 
-// TODO // Create Pixels Image and Save it as a File
+// TODO // Generar imagen de pixeles y guardar como archivo PNG
 const savePNGfile = async (req, res) => {
   // res.send("Soy Save PNG file");
   const canvasSize = 200;
@@ -26,19 +26,19 @@ const savePNGfile = async (req, res) => {
   const canvas = createCanvas(canvasSize, canvasSize);
   const context = canvas.getContext("2d");
 
-  // Function to generate a random color
+  // Función para generar un color de forma aleatoria
   function getRandomColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   }
 
-  // Function to draw a pixel
+  // Función para dibujar un pixel
   function drawPixel(x, y, color) {
     context.fillStyle = color;
     context.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
   }
 
 
-  // Function to draw a symmetric pixel
+  // Función para dibujar un pixel simétrico
   function drawSymmetricPixel(x, y, color) {
     drawPixel(x, y, color);
     drawPixel(numPixels - 1 - x, y, color);
@@ -46,7 +46,7 @@ const savePNGfile = async (req, res) => {
     drawPixel(numPixels - 1 - x, numPixels - 1 - y, color);
   }
 
-  // Generate the avatar with symmetry
+  // Genera el avatar pixelado con simetría
   for (let x = 0; x < numPixels / 2; x++) {
     for (let y = 0; y < numPixels / 2; y++) {
       const isWhite = Math.random() > 0.5;
@@ -55,11 +55,11 @@ const savePNGfile = async (req, res) => {
     }
   }
 
-  // Generate a unique name for the image file using a timestamp
+  // Genera nombre de archivo único usando timestamp
   const timestamp = new Date().getTime();
   const imageName = `avatar_${timestamp}.png`;
 
-  // Save the image to a file
+  // Guarda la imagen a un archivo
   const imagePath = path.join(__dirname, "../public/docs", imageName);
   const out = fs.createWriteStream(imagePath);
   const stream = canvas.createPNGStream();
@@ -72,7 +72,7 @@ const savePNGfile = async (req, res) => {
 };
 
 
-// ! Download PNG File
+// ! Download archivo PNG 
 const downloadFile = async (req, res) => {
   let filesToReverse = fs.readdir("./public/docs", async (error, filesToReverse) => {
     if (error) {
@@ -89,7 +89,7 @@ const downloadFile = async (req, res) => {
 };
 
 
-// ! Convert to PDF and Save File
+// ! Convertir  a PDF y guardar archivo
 const convertToPDF = async (req, res) => {
   let filesToReverse = fs.readdir("./public/docs", async (error, filesToReverse) => {
     if (error) {
@@ -114,7 +114,7 @@ const convertToPDF = async (req, res) => {
 };
 
 
-// ! Download PDF File
+// ! Download archivo PDF 
 const  downloadPDF = async (req, res) => {
   // res.send(`Soy PDF Download ${req.params.nameOfFile.split(".")[0]}`)
   let filesToReverse = fs.readdir("./public/download", async (error, filesToReverse) => {
@@ -132,7 +132,7 @@ const  downloadPDF = async (req, res) => {
 };
 
 
-// ! Delete PNG File
+// ! Borrar archivo PNG
 const deleteFile = async (req, res) => {
   let filesToReverse = fs.readdir("./public/docs", async (error, filesToReverse) => {
     if (error) {
