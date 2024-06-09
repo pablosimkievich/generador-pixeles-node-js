@@ -6,6 +6,6 @@
 * Opción de bajada de archivos .png o .pdf
 * Opción de borrado de archivos
 ---
-<image src="./public/snapshot.png" >
+<image src="./public/SnapShot.png" >
 
 ---
